@@ -1,0 +1,95 @@
+
+(Spin Version 6.5.2 -- 6 December 2019)
+
+Full statespace search for:
+	never claim         	+ (leaderCompleteness)
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 368 byte, depth reached 146, errors: 0
+   100536 states, stored
+   261669 states, matched
+   362205 transitions (= stored+matched)
+   319977 atomic steps
+hash conflicts:       587 (resolved)
+
+Stats on memory usage (in Megabytes):
+   37.968	equivalent memory usage for states (stored*(State-vector + overhead))
+   36.219	actual memory usage for states (compression: 95.39%)
+         	state-vector as stored = 350 byte + 28 byte overhead
+  128.000	memory used for hash table (-w24)
+   32.044	memory used for DFS stack (-m600000)
+  195.330	total actual memory usage
+
+
+unreached in proctype server
+	/tmp/spintemp.pml:104, state 33, "rv.lastLogIndex = 1"
+	/tmp/spintemp.pml:107, state 36, "rv.lastLogIndex = 2"
+	/tmp/spintemp.pml:118, state 53, "state[serverId] = 3"
+	/tmp/spintemp.pml:141, state 71, "lastLogIndex = 1"
+	/tmp/spintemp.pml:144, state 74, "lastLogIndex = 2"
+	/tmp/spintemp.pml:163, state 92, "assert((i!=serverId))"
+	/tmp/spintemp.pml:168, state 95, "state[serverId] = 1"
+	/tmp/spintemp.pml:169, state 96, "votedFor = 20"
+	/tmp/spintemp.pml:173, state 100, "(1)"
+	/tmp/spintemp.pml:166, state 101, "((rvr.term>currentTerm[serverId]))"
+	/tmp/spintemp.pml:166, state 101, "(((rvr.term==currentTerm[serverId])&&rvr.voteGranted))"
+	/tmp/spintemp.pml:166, state 101, "((!((rvr.term>currentTerm[serverId]))&&!(((rvr.term==currentTerm[serverId])&&rvr.voteGranted))))"
+	/tmp/spintemp.pml:161, state 103, "rvr_ch[serverId].ch?rvr.term,rvr.src,rvr.voteGranted"
+	/tmp/spintemp.pml:182, state 107, "ae.src = serverId"
+	/tmp/spintemp.pml:189, state 112, "ae.prevLogTerm = log[i].log[0]"
+	/tmp/spintemp.pml:184, state 114, "((log[serverId].log[0]!=log[i].log[0]))"
+	/tmp/spintemp.pml:184, state 114, "((((log[serverId].log[1]!=0)&&(log[serverId].log[0]==log[i].log[0]))&&(log[serverId].log[1]!=log[i].log[1])))"
+	/tmp/spintemp.pml:184, state 114, "ae.index = 20"
+	/tmp/spintemp.pml:199, state 125, "ae_ch[index].ch!ae.term,ae.leaderCommit,ae.index,ae.prevLogTerm,ae.src"
+	/tmp/spintemp.pml:180, state 126, "ae.term = currentTerm[serverId]"
+	/tmp/spintemp.pml:206, state 130, "assert((i!=serverId))"
+	/tmp/spintemp.pml:212, state 133, "state[serverId] = 1"
+	/tmp/spintemp.pml:213, state 134, "votedFor = 20"
+	/tmp/spintemp.pml:214, state 136, "(1)"
+	/tmp/spintemp.pml:210, state 137, "((ae.term>currentTerm[serverId]))"
+	/tmp/spintemp.pml:210, state 137, "((ae.term<=currentTerm[serverId]))"
+	/tmp/spintemp.pml:221, state 142, "votedFor = 20"
+	/tmp/spintemp.pml:223, state 144, "(1)"
+	/tmp/spintemp.pml:219, state 145, "(((ae.term==currentTerm[serverId])&&(state[serverId]==2)))"
+	/tmp/spintemp.pml:219, state 145, "(((ae.term!=currentTerm[serverId])||(state[serverId]!=2)))"
+	/tmp/spintemp.pml:229, state 149, "aer.src = serverId"
+	/tmp/spintemp.pml:230, state 150, "aer.term = currentTerm[serverId]"
+	/tmp/spintemp.pml:234, state 153, "aer_ch[i].ch!aer.term,aer.src,aer.success"
+	/tmp/spintemp.pml:238, state 156, "log[serverId].log[ae.index] = ae.term"
+	/tmp/spintemp.pml:244, state 157, "commitIndex[serverId] = ae.leaderCommit"
+	/tmp/spintemp.pml:246, state 158, "aer_ch[i].ch!aer.term,aer.src,aer.success"
+	/tmp/spintemp.pml:232, state 159, "(((ae.term<currentTerm[i])||(((ae.term==currentTerm[serverId])&&(state[serverId]==1))&&!(logOk))))"
+	/tmp/spintemp.pml:232, state 159, "((((ae.term==currentTerm[serverId])&&(state[serverId]==1))&&logOk))"
+	/tmp/spintemp.pml:204, state 161, "ae_ch[serverId].ch?ae.term,ae.leaderCommit,ae.index,ae.prevLogTerm,ae.src"
+	/tmp/spintemp.pml:254, state 165, "assert((i!=serverId))"
+	/tmp/spintemp.pml:259, state 168, "state[serverId] = 1"
+	/tmp/spintemp.pml:260, state 169, "votedFor = 20"
+	/tmp/spintemp.pml:262, state 171, "(1)"
+	/tmp/spintemp.pml:273, state 176, "(1)"
+	/tmp/spintemp.pml:269, state 177, "(((commitIndex[serverId]==0)&&(log[i].log[0]==log[serverId].log[0])))"
+	/tmp/spintemp.pml:269, state 177, "(((commitIndex[serverId]==1)&&!(((log[serverId].log[1]!=0)&&(log[i].log[1]==log[serverId].log[1])))))"
+	/tmp/spintemp.pml:276, state 180, "(1)"
+	/tmp/spintemp.pml:257, state 181, "((aer.term>currentTerm[serverId]))"
+	/tmp/spintemp.pml:257, state 181, "((aer.term<currentTerm[serverId]))"
+	/tmp/spintemp.pml:257, state 181, "((((aer.term==currentTerm[serverId])&&aer.success)&&(state[serverId]==3)))"
+	/tmp/spintemp.pml:257, state 181, "(((aer.term==currentTerm[serverId])&&!((aer.success&&(state[serverId]==3)))))"
+	/tmp/spintemp.pml:252, state 183, "aer_ch[serverId].ch?aer.term,aer.src,aer.success"
+	/tmp/spintemp.pml:284, state 186, "log[serverId].log[0] = currentTerm[serverId]"
+	/tmp/spintemp.pml:286, state 188, "log[serverId].log[1] = currentTerm[serverId]"
+	/tmp/spintemp.pml:283, state 189, "((log[serverId].log[0]==0))"
+	/tmp/spintemp.pml:283, state 189, "((log[serverId].log[0]!=0))"
+	/tmp/spintemp.pml:289, state 194, "-end-"
+	(45 of 194 states)
+unreached in init
+	(0 of 10 states)
+unreached in claim leaderCompleteness
+	_spin_nvr.tmp:9, state 16, "(!(((!((state[1]==3))||(log[0].log[0]==log[1].log[0]))&&(!((state[2]==3))||(log[0].log[0]==log[2].log[0])))))"
+	_spin_nvr.tmp:9, state 16, "(1)"
+	_spin_nvr.tmp:14, state 20, "-end-"
+	(2 of 20 states)
+
+pan: elapsed time 0.25 seconds
+pan: rate    402144 states/second
+ltl leaderCompleteness: [] ((! ((commitIndex[0]==1))) || ([] (((! ((state[1]==3))) || ((log[0].log[0]==log[1].log[0]))) && ((! ((state[2]==3))) || ((log[0].log[0]==log[2].log[0]))))))
