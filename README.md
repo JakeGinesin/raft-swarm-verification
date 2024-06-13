@@ -19,8 +19,8 @@ The properties were derived directly from the original Raft paper.
 The properties are not defined to reason about all nodes - rather, they're defined over a subset of the nodes. This doesn't affect the completeness of the properties though. All the nodes are symmetric, and because the model checker explores all possible states, a violating trace on one subset of nodes is replicable across all other subsets of nodes of equal size.
 
 # Todo
-- [] get the model running with [spins](https://github.com/utwente-fmt/spins) and [swarm](https://www.spinroot.com/swarm/) instead of just running it raw
-- [] full log completions
+- [ ] get the model running with [spins](https://github.com/utwente-fmt/spins) and [swarm](https://www.spinroot.com/swarm/) instead of just running it raw
+- [ ] full log completions
 - [x] all props from paper
 - [x] canonical election sequence
 
