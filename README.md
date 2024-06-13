@@ -11,7 +11,7 @@ To verify the model against the defined properties (stored in `props`), run:
 ```
 sh runner.sh
 ```
-And, the results will be placed into `out`
+And, the results will be placed into `out`. In case you don't want to do this, the output for running the verification with 3 nodes was placed in `out-samp`
 
 # A note about the properties
 The properties were derived directly from the original Raft paper.
@@ -21,8 +21,8 @@ The properties are not defined to reason about all nodes - rather, they're defin
 # Todo
 - [] get the model running with [spins](https://github.com/utwente-fmt/spins) and [swarm](https://www.spinroot.com/swarm/) instead of just running it raw
 - [] full log completions
-- [/] all props from paper
-- [/] canonical election sequence
+- [x] all props from paper
+- [x] canonical election sequence
 
 # References
 - [Raft Paper](https://raft.github.io/raft.pdf)
